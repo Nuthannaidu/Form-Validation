@@ -38,16 +38,26 @@ function showErrorCard(message){
   overlay.classList.add("show");
 }
 
-// Show success card with a specific message
-function showSuccessCard(message){
-  let successCard=document.getElementById("successCard");
-  let successMessage=document.getElementById("successMessage");
-  let overlay=document.getElementById("overlay");
+// Show success card 
+function showSuccessCard(message) {
+  let successCard = document.getElementById("successCard");
+  let successMessage = document.getElementById("successMessage");
+  let overlay = document.getElementById("overlay");
 
-  successMessage.innerHTML=message;
+  successMessage.innerHTML = message;
   successCard.classList.add("show");
   overlay.classList.add("show");
+  // Reset the form
+  document.forms["myForm"].reset();
+  // Reset touchedFields
+  touchedFields.fname = false;
+  touchedFields.femail = false;
+  touchedFields.fphone = false;
+  touchedFields.fpass = false;
+  touchedFields.fcpass = false;
+  clearErrors();
 }
+
 
 // Close the error or success card
 function closeCard(){
